@@ -1,81 +1,70 @@
-#include<dstdio.h>
+#include<stdio.h>
 #include<conio.h>
 
 void main()
 {
- int a[20][20],b[20][20],c[20][20],i,j,lim,lim1;
+ int a[20][20],b[20][20];
+ int i,j,r,c;
  clrscr();
-
  again:
 
- printf("\n Enter a limit of rows of matrix : ");
- scanf("%d",&lim);
- printf("\n Enter a limit of coloums of matrix : ");
- scanf("%d",&lim1);
+ printf("\n Enter the number of row      : ");
+ scanf("%d",&r,&c);
+ printf("\n Enter the number of coloums  :");
+ scanf("%d",&c);
 
-////////////////////////////////////////////////////////////////////////////////
-
-if(lim!=lim1)
-{
-printf("\n!!!The operaton be in only square matrix. Try again, !!!");
-getch();
-goto again;
-}
-else
-printf("\n put the matrixes values");
-
-///////////////////////////////////////////////////////////////////////////////////
-
- printf("\n\n First matrix ");
-
- for(i=1;i<=lim;i++)
+ if(r!=c)
  {
-	for(j=1;j<=lim;j++)
-	{
-		printf("\n The value is position at [%d][%d] : ",i,j);
-		scanf("%d",a[i][j]);
-	}
-  }
- for(i=1;i<=lim;i++)
- {
-	for(j=1;j<=lim;j++)
-	{
-		printf("%d ",a[i][j]);
-
-	}
- printf("\n");
+ printf("\n Additon can not be proceed. This is not square matrix. Please Try Again !!!");
+ getch();
+ goto again;
  }
+ 
+ printf("\n\n Enter the Elements of first matrix -->");
 
-
-
-
-
-
-
-
-
- printf("\n Second matrix ");
-
- for(i=1;i<=lim;i++)
- {
-	for(j=1;j<=lim;j++)
-	{
-		printf("\n The value is position at [%d][%d] : ",i,j);
-		scanf("%d",b[i][j]);
+ 
+ for(i=1;i<=r;i++)
+ {	for(j=1;j<=c;j++)
+	{ 	printf("\nElement at [%d][%d] : ",i,j);
+		scanf("%d",&a[i][j]);
 	}
  }
 
-
- for(i=1;i<=lim;i++)
- {
-	for(j=1;j<=lim;j++)
-	{
-		printf(" %d ",b[i][j]);
-
+ printf("\n Enter the Elements of second matrix -->");
+ for(i=1;i<=r;i++)
+ {	for(j=1;j<=c;j++)
+	{ 	printf("\nElement at [%d][%d] : ",i,j);
+		scanf("%d",&b[i][j]);
 	}
- printf("\n");
+	printf("\n");
  }
 
 
+printf(" The firat matrix -->\n");
+for(i=1;i<=r;i++)
+ {	for(j=1;j<=c;j++)
+	{ 	
+		printf("\t %d ",a[i][j]);
+	}
+    printf("\n");
+ }
+
+ printf("The  second Matrix -->\n");
+for(i=1;i<=r;i++)
+ {	for(j=1;j<=c;j++)
+	{ 	
+		printf("\t%d",b[i][j]);
+	}
+	printf("\n");
+ }
+
+ printf("Additon of matrix's -->\n");
+ for(i=1;i<=r;i++)
+ {	for(j=1;j<=c;j++)
+	{ 	
+		printf("\t%d",a[i][j]+b[i][j]);
+	}
+    printf("\n");
+ }
 getch();
 }
